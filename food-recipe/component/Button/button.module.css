@@ -1,0 +1,15 @@
+.submitButt{
+    background: #EFC81A;
+    border-radius: 5px;
+    width: 100%;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    border: none;
+    color: #fff;
+    transition: 300ms;
+    cursor: pointer;
+}
+.submitButt:hover {
+    background-color: #CFA800;
+    transform: translateY(-8px);
+}
