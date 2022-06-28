@@ -17,6 +17,8 @@ const Newrecipe = () => {
     video: "",
     title: "",
   });
+  const [video, setVideo] = useState()
+  const [image, setImage] = useState()
   async function fetchData(dataForm) {
     await axios({
       method: "POST",
@@ -26,14 +28,28 @@ const Newrecipe = () => {
     });
   }
   const handleChange = (e) => {
-    setNewRecipe({
-      ...newRecipe,
-      [e.target.name]: e.target.value,
-    });
+      setNewRecipe({
+        ...newRecipe,
+        [e.target.name]: e.target.value,
+      });
   };
+  const handleVideo = (e) => {
+    setVideo({
+      ...video,
+      [e.target.name]: e.target.files[0]
+    })
+  }
+  const handleImage = (e) => {
+    setImage({
+      ...image,
+      [e.target.name]: e.target.files[0]
+    })
+  }
   useEffect(() => {
     console.log(newRecipe);
-  }, [newRecipe]);
+    console.log(image);
+    console.log(video);
+  }, [newRecipe, image, video]);
 
   const handleNewRecipe = (e) => {
     e.preventDefault();
@@ -41,10 +57,12 @@ const Newrecipe = () => {
     formData.append("userID", newRecipe.userID);
     formData.append("name", newRecipe.name);
     formData.append("ingridient", newRecipe.ingridient);
-    formData.append("image", newRecipe.image);
-    formData.append("video", newRecipe.video);
+    formData.append("image", image);
+    formData.append("video", video);
     formData.append("title", newRecipe.title);
-    fetchData(formData);
+    console.log(formData.get('image'));
+    console.log(formData.get('video'));
+    // fetchData(formData);
     alert("New Recipe Added");
   };
 
@@ -59,11 +77,11 @@ const Newrecipe = () => {
                 <input
                   name="image"
                   className={style.uploadPhoto}
-                  value={newRecipe.image}
+                  // value={File}
                   id="pict"
                   type="file"
                   accept=".jpeg, .jpg, .png"
-                  onChange={(e) => handleChange(e)}
+                  onChange={(e) => handleImage(e)}
                 />
               </div>
             <InputC
@@ -91,11 +109,11 @@ const Newrecipe = () => {
                 <input
                   name="video"
                   className={style.vid}
-                  value={newRecipe.video}
+                  // value={video}
                   id="vid"
                   type="file"
                   accept=".mp4"
-                  onChange={(e)=>handleChange(e)}
+                  onChange={(e)=>handleVideo(e)}
                 />
               </div>
               <InputC
