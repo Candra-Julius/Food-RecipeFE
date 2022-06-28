@@ -22,7 +22,7 @@ const RecipeDetail = ({recipe}) => {
     </div>
     <div className={style.videos}>
     <div className={style.videoButton}>
-    <Image className={style.buttonImage} src={play}  width={'20%'} height={'20%'} />
+    <Image className={style.buttonImage} alt='' src={play}  width={'20%'} height={'20%'} />
     </div>
     </div>
     </main>
