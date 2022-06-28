@@ -44,9 +44,10 @@ useEffect(()=>{
       <div className={styles.indexCard}>
       {recipe.map((data)=>(
       <div className={styles.Card}>
-        <Image className={styles.image} src={data.pict? data.pict: dummy} alt='thumbnail' width={'200px'} height={'200px'}  />
+        <Image className={styles.image} src={data.pict? data.pict: dummy} alt='thumbnail' width={'100%'} height={'100%'} layout="responsive" />
         <p>{data.recipe_name}</p>
       </div>
+      
       ))}
     </div>
         
