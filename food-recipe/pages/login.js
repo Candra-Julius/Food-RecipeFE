@@ -22,13 +22,13 @@ const Login = () => {
   const handleLogin = async (e)=>{
     try {
       e.preventDefault()
+
     const {data} = await axios.post('http://localhost:8000/login', form, {withCredentials: true} )
     localStorage.setItem('login', data.payload.isLogin)
     router.push('/')
     } catch (error) {
       console.log(error);
-      // const statusErr = error.response.data.message
-      // setErr(statusErr)
+      setErr(error.response.data.message)
     }
   }
   return (

@@ -3,9 +3,10 @@ import NavBar from "../component/NavBar";
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import landing from '../public/assets/image/Rectangle 313.png'
-import dummy from '../public/assets/image/1471262.png'
+import dummy from '../public/assets/image/No_image_available.svg.webp'
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Link  from 'next/link';
 
 export default function Home() {
   const [recipe, setRecipe] = useState([])
@@ -43,11 +44,12 @@ useEffect(()=>{
       </div>
       <div className={styles.indexCard}>
       {recipe.map((data)=>(
+        <Link href={`/recipe/${data.recipe_id}`}>
       <div className={styles.Card}>
-        <Image className={styles.image} src={data.pict? data.pict: dummy} alt='thumbnail' width={'100%'} height={'100%'} layout="responsive" />
+        <Image className={styles.Card} src={data.pict? data.pict: dummy} alt='thumbnail' width={'100%'} height={'100%'} layout="responsive" />
         <p>{data.recipe_name}</p>
       </div>
-      
+      </Link>
       ))}
     </div>
         

@@ -6,8 +6,13 @@ import style from '../../styles/detailRecipe.module.css'
 import dummy from '../../public/assets/image/Rectangle 313.png'
 import play from '../../public/assets/image/pnghut_music-icon-play-button-gadget-technology.png'
 import axios from 'axios'
+import { useRouter } from 'next/router'
 
 const RecipeDetail = ({recipe}) => {
+  const router = useRouter()
+  if(router.isFallback){
+    return <h3>Loading. . .</h3>
+  }
   return (
     <div className={style.container}>
     <NavBar/>
@@ -21,6 +26,7 @@ const RecipeDetail = ({recipe}) => {
     <p>{recipe.ingridient}</p>
     </div>
     <div className={style.videos}>
+    <h3>Step Video</h3>
     <div className={style.videoButton}>
     <Image className={style.buttonImage} alt='' src={play}  width={'20%'} height={'20%'} />
     </div>
@@ -30,17 +36,37 @@ const RecipeDetail = ({recipe}) => {
     </div>
   )
 }
-export const getServerSideProps = async(context) => {
+export const getStaticPaths = async() => {
     try {
-        const {id} = context.params
-        const {data} = await axios.get(`http://localhost:8000/recipe/detail/${id}`)
-        const result = data.data
+        
+        const {data} = await axios.get(`http://localhost:8000/home`)
+        console.log(data);
+        const result = data.hasil
+        const paths = result.map((data)=>{
+          return{
+            params:{
+              id: data.recipe_id + ''
+            }
+          }
+        })
+        console.log(paths);
         return{
-            props:{recipe: result}
+            paths:paths,
+            fallback: true
         }
     } catch (error) {
         
     }
+}
+export const getStaticProps = async(context)=>{
+  const {id} = context.params
+  const {data} = await axios.get(`http://localhost:8000/recipe/detail/${id}`)
+  const result = data.data
+  return {
+    props: {
+      recipe: result
+    }
+  }
 }
 
 export default RecipeDetail

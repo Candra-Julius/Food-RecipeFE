@@ -36,6 +36,32 @@
     border-radius: 5px;
     box-shadow: 0 0 5px 3px rgba(0, 0, 0,0.5);
 }
+.Card button{
+    padding:1px 5px 1px 5px;
+    text-align: center;
+    margin-left: 5px;
+    top:25px;
+    z-index: 10;
+    position:relative;
+    cursor: pointer;
+    transition: 400ms;
+}
+.Card button:hover{
+    content: 'delete';
+    transform: translateY(4px);
+}
+.delete{
+    background-color:none;
+    border:1px solid #EFC81A;
+    color: #3F3A3A;
+    border-radius: 5px;
+}
+.edit{
+    /* background-color: #2E266F; */
+    border:1px solid #2E266F;
+    color: #3F3A3A;
+    border-radius: 5px;
+}
 .image:hover{
     transform:scale(105%);
 }

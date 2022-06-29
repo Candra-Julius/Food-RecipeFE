@@ -7,8 +7,11 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Card from '../component/Card'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 const Profile = () => {
+  const router = useRouter()
   const [profile, setProfile] = useState([])
   const [recipe, setRecipe] = useState([])
   async function fetchData() {
@@ -20,6 +23,12 @@ const Profile = () => {
 useEffect(()=>{
   fetchData()
 },[])
+  const handleDelete = async(id) => {
+    await axios.delete(`http://localhost:8000/recipe/delete/${id}`, {withCredentials: true})
+  }
+  const handleEdit = (id) => {
+    router.push(`/recipe/edit/${id}`)
+  }
   return (
     <div className={style.container}>
     <NavBar/>
@@ -34,9 +43,16 @@ useEffect(()=>{
     {recipe.map((data)=>(
       // eslint-disable-next-line react/jsx-key
       // <Card image={data.pict? data.pict: imgRecipeDefault} title={'title'} />
-      <div className={style.image} key={data.recipe_id}>
+      
+      <div className={style.Card} key={data.recipe_id}>
+      <button className={style.delete} type='button' onClick={()=>handleDelete(data.recipe_id)} >X</button>
+      <button className={style.edit} type='button' onClick={()=>handleEdit(data.recipe_id)} >...</button>
+      <Link href={`/recipe/${data.recipe_id}`} >
+      <div className={style.image} >
       <Image className={style.image} src={data.pict? data.pict: dummy} alt='thumbnail' width={'100%'} height={'100%'} layout="responsive" />
       <p>{data.recipe_name}</p>
+      </div>
+      </Link>
       </div>
       ))}
     </div>}

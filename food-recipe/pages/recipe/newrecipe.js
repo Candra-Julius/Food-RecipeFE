@@ -10,21 +10,19 @@ import Image from "next/image";
 const Newrecipe = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [newRecipe, setNewRecipe] = useState({
-    userID: "123123",
     name: "",
     ingridient: "",
-    image: "",
-    video: "",
     title: "",
   });
-  const [video, setVideo] = useState()
-  const [image, setImage] = useState()
+  const [video, setVideo] = useState([])
+  const [image, setImage] = useState([])
   async function fetchData(dataForm) {
     await axios({
       method: "POST",
       baseURL: "http://localhost:8000/",
       url: "recipe/new",
       data: dataForm,
+      withCredentials: true
     });
   }
   const handleChange = (e) => {
@@ -34,16 +32,10 @@ const Newrecipe = () => {
       });
   };
   const handleVideo = (e) => {
-    setVideo({
-      ...video,
-      [e.target.name]: e.target.files[0]
-    })
+    setVideo(e.target.files[0])
   }
   const handleImage = (e) => {
-    setImage({
-      ...image,
-      [e.target.name]: e.target.files[0]
-    })
+    setImage(e.target.files[0])
   }
   useEffect(() => {
     console.log(newRecipe);
@@ -62,7 +54,7 @@ const Newrecipe = () => {
     formData.append("title", newRecipe.title);
     console.log(formData.get('image'));
     console.log(formData.get('video'));
-    // fetchData(formData);
+    fetchData(formData);
     alert("New Recipe Added");
   };
 
@@ -77,7 +69,7 @@ const Newrecipe = () => {
                 <input
                   name="image"
                   className={style.uploadPhoto}
-                  // value={File}
+                  value={''}
                   id="pict"
                   type="file"
                   accept=".jpeg, .jpg, .png"
@@ -97,9 +89,9 @@ const Newrecipe = () => {
               <textarea
                 value={newRecipe.ingridient}
                 onChange={(e)=>handleChange(e)}
-                id="opinion"
+                id="text-area"
                 className={style.textArea}
-                name="text-area"
+                name={'ingridient'}
                 placeholder="Ingedient"
               ></textarea>
             </div>
@@ -109,7 +101,7 @@ const Newrecipe = () => {
                 <input
                   name="video"
                   className={style.vid}
-                  // value={video}
+                  value={''}
                   id="vid"
                   type="file"
                   accept=".mp4"
@@ -135,7 +127,6 @@ const Newrecipe = () => {
           </div>
         </form>
       </main>
-
       <Footer />
     </div>
   );

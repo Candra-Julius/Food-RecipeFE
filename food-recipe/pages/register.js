@@ -27,9 +27,13 @@ const Register = () => {
         setErr("Password did not match");
       } else {
         const {data: response} = await axios
-          .post("https://food-recipe-pijar.herokuapp.com/register", form)
+          .post("http://localhost:8000/register", form)
+          if(error){
           setErr(response.message)
+      }else{
+        alert(response.message)
       }
+    }
     } catch (error) {
       alert("somethings wrong");
     }
