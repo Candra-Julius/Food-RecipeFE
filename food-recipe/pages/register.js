@@ -27,7 +27,7 @@ const Register = () => {
         setErr("Password did not match");
       } else {
         const {data: response} = await axios
-          .post("http://localhost:8000/register", form)
+          .post(`${process.env.NEXT_API}/register`, form)
           if(error){
           setErr(response.message)
       }else{

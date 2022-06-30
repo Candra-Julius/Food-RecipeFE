@@ -11,7 +11,7 @@ import Link  from 'next/link';
 export default function Home() {
   const [recipe, setRecipe] = useState([])
   async function fetchData() {
-    const result = await axios.get('http://localhost:8000/home') 
+    const result = await axios.get(`${process.env.NEXT_API}/home`) 
     setRecipe(result.data.hasil)
   
   }

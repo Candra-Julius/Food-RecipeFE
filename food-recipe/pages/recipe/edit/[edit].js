@@ -26,7 +26,7 @@ const EdirRecipe = ({recipe}) => {
   
   const [image, setImage] = useState([]);
   const fetchData = async (formData) => {
-    const {data: result} = await axios.put(`http://localhost:8000/recipe/edit/${id}`, formData ,{withCredentials:true});
+    const {data: result} = await axios.put(`${process.env.NEXT_API}/recipe/edit/${id}`, formData ,{withCredentials:true});
     const data = result.data
     console.log(id);
     console.log(data);
@@ -109,7 +109,7 @@ const handleSubmit = (e) =>{
 export const getServerSideProps = async(context) => {
     try {
         const {edit: id} = context.params
-        const {data} = await axios.get(`http://localhost:8000/recipe/detail/${id}`)
+        const {data} = await axios.get(`${process.env.NEXT_API}/recipe/detail/${id}`)
         const result = data.data
         return{
             props:{recipe: result, id}

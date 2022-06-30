@@ -39,7 +39,7 @@ const RecipeDetail = ({recipe}) => {
 export const getStaticPaths = async() => {
     try {
         
-        const {data} = await axios.get(`http://localhost:8000/home`)
+        const {data} = await axios.get(`${process.env.NEXT_API}/home`)
         console.log(data);
         const result = data.hasil
         const paths = result.map((data)=>{
@@ -60,7 +60,7 @@ export const getStaticPaths = async() => {
 }
 export const getStaticProps = async(context)=>{
   const {id} = context.params
-  const {data} = await axios.get(`http://localhost:8000/recipe/detail/${id}`)
+  const {data} = await axios.get(`${process.env.NEXT_API}/recipe/detail/${id}`)
   const result = data.data
   return {
     props: {

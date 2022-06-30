@@ -19,8 +19,8 @@ const Newrecipe = () => {
   async function fetchData(dataForm) {
     await axios({
       method: "POST",
-      baseURL: "http://localhost:8000/",
-      url: "recipe/new",
+      baseURL: `${process.env.NEXT_API}`,
+      url: "/recipe/new",
       data: dataForm,
       withCredentials: true
     });

@@ -19,7 +19,7 @@ const NavBar = () => {
   },[])
   const handleLogout = (e) => {
     e.preventDefault()
-    axios.get('http://localhost:8000/logout', {withCredentials: true})
+    axios.get(`${process.env.NEXT_API}/logout`, {withCredentials: true})
     localStorage.removeItem('login')
     router.push('/login')
   }

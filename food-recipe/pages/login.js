@@ -23,7 +23,7 @@ const Login = () => {
     try {
       e.preventDefault()
 
-    const {data} = await axios.post('http://localhost:8000/login', form, {withCredentials: true} )
+    const {data} = await axios.post(`${process.env.NEXT_API}/login`, form, {withCredentials: true} )
     localStorage.setItem('login', data.payload.isLogin)
     router.push('/')
     } catch (error) {

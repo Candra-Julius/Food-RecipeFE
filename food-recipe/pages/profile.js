@@ -15,7 +15,7 @@ const Profile = () => {
   const [profile, setProfile] = useState([])
   const [recipe, setRecipe] = useState([])
   async function fetchData() {
-    const {data: result} = await axios.get('http://localhost:8000/users/myprofile', {withCredentials: true})
+    const {data: result} = await axios.get(`${process.env.NEXT_API}/users/myprofile`, {withCredentials: true})
     setProfile(result.data);
     setRecipe(result.data.recipe)
   }
@@ -24,7 +24,7 @@ useEffect(()=>{
   fetchData()
 },[])
   const handleDelete = async(id) => {
-    await axios.delete(`http://localhost:8000/recipe/delete/${id}`, {withCredentials: true})
+    await axios.delete(`${process.env.NEXT_API}/recipe/delete/${id}`, {withCredentials: true})
   }
   const handleEdit = (id) => {
     router.push(`/recipe/edit/${id}`)
