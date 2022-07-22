@@ -2,6 +2,7 @@ import axios from "axios";
 import Link from "next/link";
 import { useState } from "react";
 import Button from "../component/Button";
+import withAuth from "../component/HOC/isLogedOut";
 import InputC from "../component/InputC";
 import style from "../styles/register.module.css";
 
@@ -104,4 +105,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default withAuth(Register);

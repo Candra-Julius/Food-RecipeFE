@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Button from "../../../component/Button";
 import Footer from "../../../component/Footer";
+import withOutAuth from "../../../component/HOC/isLogedIn";
 import InputC from "../../../component/InputC";
 import NavBar from "../../../component/NavBar";
 import style from "../../../styles/editRecipe.module.css";
@@ -26,7 +27,8 @@ const EdirRecipe = ({recipe}) => {
   
   const [image, setImage] = useState([]);
   const fetchData = async (formData) => {
-    const {data: result} = await axios.put(`${process.env.NEXT_API}/recipe/edit/${id}`, formData ,{withCredentials:true});
+    const token = localStorage.getItem('token')
+    const {data: result} = await axios.put(`${process.env.NEXT_API}/recipe/edit/${id}`, formData ,{withCredentials:true, headers:{Authorization: `Bearer ${token}`,}});
     const data = result.data
     console.log(id);
     console.log(data);
@@ -119,4 +121,4 @@ export const getServerSideProps = async(context) => {
     }
 }
 
-export default EdirRecipe;
+export default withOutAuth(EdirRecipe);

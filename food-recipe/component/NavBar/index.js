@@ -21,6 +21,8 @@ const NavBar = () => {
     e.preventDefault()
     axios.get(`${process.env.NEXT_API}/logout`, {withCredentials: true})
     localStorage.removeItem('login')
+    localStorage.removeItem('token')
+    localStorage.removeItem('refreshToken')
     router.push('/login')
   }
   return (

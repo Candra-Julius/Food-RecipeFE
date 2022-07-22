@@ -21,7 +21,6 @@ useEffect(()=>{
   return (
     <div className={styles.container}>
       <NavBar/>
-
       <main className={styles.main}>
         <div className={styles.sect1}>
           <div className={styles.subSect1}>

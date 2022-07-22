@@ -7,6 +7,7 @@ import dummy from '../../public/assets/image/Rectangle 313.png'
 import play from '../../public/assets/image/pnghut_music-icon-play-button-gadget-technology.png'
 import axios from 'axios'
 import { useRouter } from 'next/router'
+import withOutAuth from '../../component/HOC/isLogedIn'
 
 const RecipeDetail = ({recipe}) => {
   const router = useRouter()

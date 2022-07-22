@@ -1,13 +1,15 @@
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { useState } from "react";
 import Button from "../component/Button";
+import withAuth from "../component/HOC/isLogedOut";
 import InputC from "../component/InputC";
 import style from "../styles/login.module.css";
 
-const Login = () => {
-  const router = useRouter()  
+const Login = ({setIsLoggedIn}) => {
+  const router = useRouter()
   const [err, setErr] = useState([])
   const [form, setForm] = useState({
     email: '',
@@ -22,9 +24,11 @@ const Login = () => {
   const handleLogin = async (e)=>{
     try {
       e.preventDefault()
-
     const {data} = await axios.post(`${process.env.NEXT_API}/login`, form, {withCredentials: true} )
     localStorage.setItem('login', data.payload.isLogin)
+    localStorage.setItem('token', data.payload.token)
+    localStorage.setItem('refreshToken', data.payload.refreshToken)
+    setIsLoggedIn(localStorage.getItem('login'))
     router.push('/')
     } catch (error) {
       console.log(error);
@@ -61,4 +65,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default withAuth(Login);

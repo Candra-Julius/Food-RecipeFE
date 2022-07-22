@@ -9,13 +9,18 @@ import axios from 'axios'
 import Card from '../component/Card'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import withOutAuth from '../component/HOC/isLogedIn'
 
 const Profile = () => {
   const router = useRouter()
   const [profile, setProfile] = useState([])
   const [recipe, setRecipe] = useState([])
   async function fetchData() {
-    const {data: result} = await axios.get(`${process.env.NEXT_API}/users/myprofile`, {withCredentials: true})
+    const token = localStorage.getItem('token')
+    const {data: result} = await axios.get(`${process.env.NEXT_API}/users/myprofile`, {
+      withCredentials: true,
+      headers:{ Authorization: `Bearer ${token}`,}
+    })
     setProfile(result.data);
     setRecipe(result.data.recipe)
   }
@@ -62,4 +67,5 @@ useEffect(()=>{
   )
 }
 
-export default Profile
+
+export default withOutAuth(Profile)

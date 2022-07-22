@@ -18,6 +18,10 @@
     text-align: center;
     width:200px
 }
+.title img {
+    border-radius: 15px;
+    /* box-shadow: 0 0 100px 10px rgba(0, 0, 0, 0.5); */
+}
 .ingredient{
     align-self: flex-start;
     margin: 100px;

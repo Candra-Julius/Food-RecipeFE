@@ -5,7 +5,7 @@ const nextConfig = {
   },
   reactStrictMode: true,
   env: {
-    NEXT_API: 'http://localhost:8000'
+    NEXT_API: 'https://food-recipe-pijar.herokuapp.com'
   }
 }
 

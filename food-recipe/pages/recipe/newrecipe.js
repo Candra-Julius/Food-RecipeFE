@@ -6,6 +6,7 @@ import Footer from "../../component/Footer";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Image from "next/image";
+import withOutAuth from "../../component/HOC/isLogedIn";
 
 const Newrecipe = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -132,4 +133,4 @@ const Newrecipe = () => {
   );
 };
 
-export default Newrecipe;
+export default withOutAuth(Newrecipe);
