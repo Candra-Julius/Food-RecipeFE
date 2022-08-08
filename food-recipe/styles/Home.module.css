@@ -13,7 +13,6 @@
 .subSect1{
   height: 100%;
   width:75%;
-  /* border:1px solid #EFC81A; */
   display: flex ;
   justify-content: center;
   align-items: center;
@@ -57,21 +56,22 @@
   height: 100%;
   object-fit: cover;
   border-radius: 15px;
-  /* margin:auto; */
-  /* display: block; */
 }
 .Card p{
-  /* display:contents; */
   text-transform: capitalize;
   position: absolute;
   text-align: left;
   font-size: 20px;
   font-weight: 500;
   color: black;
-  width: 160px;
+  max-width: 200px;
   line-height: 25px;
-  margin-top: -60px;
-  margin-left: 20px
+  margin-top: -50px;
+  margin-left: 20px;
+  background: #FCFCFC66;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0,0.5);
+  border-radius: 5px;
+  padding:3px;
 }
 .indexCard{
   display: flex;

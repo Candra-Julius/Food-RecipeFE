@@ -8,7 +8,7 @@ import InputC from "../../../component/InputC";
 import NavBar from "../../../component/NavBar";
 import style from "../../../styles/editRecipe.module.css";
 
-const EdirRecipe = ({recipe}) => {
+const EdirRecipe = ({recipe,setIsLoggedIn}) => {
   const router = useRouter();
   const {edit: id} = router.query;
   const [form, setForm] = useState({
@@ -60,7 +60,7 @@ const handleSubmit = (e) =>{
 }
   return (
     <div className={style.container}>
-      <NavBar />
+      <NavBar setIsLoggedIn={setIsLoggedIn} />
       <main className={style.main}>
         <form className={style.main}>
         <h1>{}</h1>

@@ -9,14 +9,14 @@ import axios from 'axios'
 import { useRouter } from 'next/router'
 import withOutAuth from '../../component/HOC/isLogedIn'
 
-const RecipeDetail = ({recipe}) => {
+const RecipeDetail = ({recipe, setIsLoggedIn}) => {
   const router = useRouter()
   if(router.isFallback){
     return <h3>Loading. . .</h3>
   }
   return (
     <div className={style.container}>
-    <NavBar/>
+    <NavBar setIsLoggedIn={setIsLoggedIn}/>
     <main className={style.main}>
     <div className={style.title}>
     <h1>{recipe.recipe_name}</h1>

@@ -10,6 +10,7 @@ import style from "../styles/login.module.css";
 
 const Login = ({setIsLoggedIn}) => {
   const router = useRouter()
+  const [isLoading, setIsLoading] = useState(false)
   const [err, setErr] = useState([])
   const [form, setForm] = useState({
     email: '',
@@ -24,11 +25,13 @@ const Login = ({setIsLoggedIn}) => {
   const handleLogin = async (e)=>{
     try {
       e.preventDefault()
+      setIsLoading(true)
     const {data} = await axios.post(`${process.env.NEXT_API}/login`, form, {withCredentials: true} )
     localStorage.setItem('login', data.payload.isLogin)
     localStorage.setItem('token', data.payload.token)
     localStorage.setItem('refreshToken', data.payload.refreshToken)
     setIsLoggedIn(localStorage.getItem('login'))
+    setIsLoading(false)
     router.push('/')
     } catch (error) {
       console.log(error);
@@ -50,12 +53,9 @@ const Login = ({setIsLoggedIn}) => {
           <div className={style.input}>
             <InputC name={'email'} type={'email'} label={'Email'} placeholder={'Email'} onChange={handleChange} />
             <InputC name={'password'} type={'password'} label={'Password'} placeholder={'Password'} onChange={handleChange} />
-            <label htmlFor="userAgreement">
-            <input type={'checkbox'} id='userAgreement' />
-            I agree to terms & conditions</label>
           </div>
           <div className={style.button}>
-          <Button title={'Login'} type={'submit'} onClick={handleLogin}/>
+          <Button title={!isLoading? 'Login': 'Loading...'} type={'submit'} onClick={handleLogin}/>
           <Link href='#' className={style.forgot}>Forgot password?</Link>
           </div>
           <p className={style.reg}>Don’t have an account? <Link href={'./register'}>Sign Up</Link></p>

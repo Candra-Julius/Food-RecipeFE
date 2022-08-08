@@ -11,7 +11,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import withOutAuth from '../component/HOC/isLogedIn'
 
-const Profile = () => {
+const Profile = ({setIsLoggedIn}) => {
   const router = useRouter()
   const [profile, setProfile] = useState([])
   const [recipe, setRecipe] = useState([])
@@ -36,7 +36,7 @@ useEffect(()=>{
   }
   return (
     <div className={style.container}>
-    <NavBar/>
+    <NavBar setIsLoggedIn={setIsLoggedIn}/>
     <div className={style.profile}>
         <Image src={dummy} height={'90%'} width={'90%'} alt={'Profile Image'}/>
         <h2>{profile.name}</h2>

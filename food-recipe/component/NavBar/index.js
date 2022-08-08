@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 import Cookies from 'js-cookie'
 import { useEffect, useState } from 'react'
 
-const NavBar = () => {
+const NavBar = ({setIsLoggedIn}) => {
   const router = useRouter()
   const [isLogin,setIsLogin] = useState(false)
   
@@ -23,6 +23,7 @@ const NavBar = () => {
     localStorage.removeItem('login')
     localStorage.removeItem('token')
     localStorage.removeItem('refreshToken')
+    setIsLoggedIn(false)
     router.push('/login')
   }
   return (
