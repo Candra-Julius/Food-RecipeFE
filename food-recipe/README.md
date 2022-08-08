@@ -1,34 +1,170 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# FoodRecipeFE
+<div id="top"></div>
 
+<!-- PROJECT LOGO -->
+<br />
+  <h3 align="center">FoodRecipe Backend</h3>
+
+  <p align="center">
+    Create a Node.js app for building FoodRecipe RESTful APIs using Express.
+    <br />
+    <a href="#table-of-contents"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://food-recipe-pijar.herokuapp.com/">View Web Service</a>
+    ·
+    <a href="https://github.com/Candra-Julius/FoodRecipeBE/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/Candra-Julius/FoodRecipeBE/issues">Request Feature</a>
+  </p>
+
+</div>
+
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#requirements">Requirements</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#setup-env-example">Setup .env example</a></li>
+      </ul>
+    </li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#related-project">Related Project</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+  </ol>
+</details>
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+FoodRecipe is a website to share your own recipe to the world.
+
+### Built With
+This app was built with some technologies below:
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [JavaScript](https://www.javascript.com/)
+- [NextJs](https://nextjs.org/)
+- [Axios](https://axios-http.com/)
+- and other
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- GETTING STARTED -->
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
+This is an example of how to list things you need to use the software and how to install them.
+
+* [Node.js](https://nodejs.org/en/download/)
+
+### Installation
+
+- Clone the Repo
+```
+git clone https://github.com/Candra-Julius/Food-RecipeFE.git
+```
+- Go To Folder Repo
+```
+cd Food-RecipeFE
+```
+- Install Module
+```
+npm install
+```
+- Make a new database
+- <a href="#setup-env-example">Setup .env</a>
+- Type ` npm run dev` To Start Development
+- Type ` npm run start` To Start Production
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### Setup .env example
+
+Create .env file in your root project folder.
+
+```env
+# app
+REACT_APP_APP_NAME = [APP_NAME]
+REACT_APP_NODE_ENV = [NODE_ENV]
+REACT_APP_API_URL = [API_URL]
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+<!-- CONTRIBUTING -->
+## Contributing
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## Learn More
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-To learn more about Next.js, take a look at the following resources:
+## Related Project
+:rocket: [`Backend FoodRecipe`](https://github.com/Candra-Julius/FoodRecipeBE/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+:rocket: [`Frontend FoodRecipe`](https://github.com/Candra-Julius/Food-RecipeFE/tree/master/food-recipe)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+:rocket: [`Web Service`](https://food-recipe-pijar.herokuapp.com/)
 
-## Deploy on Vercel
+:rocket: [`Demo FoodRecipe`](https://foodrecipe-dusky.vercel.app/login)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Screenshoots
+
+<p align="center" display=flex>
+   
+<table>
+ 
+  <tr>
+    <td><image src="https://res.cloudinary.com/candrajulius/image/upload/v1659886866/readme/FoodRecipe/login_vfplmn.png" alt="Login Page" width=100%></td>
+    <td><image src="https://res.cloudinary.com/candrajulius/image/upload/v1659886914/readme/FoodRecipe/RegisterPage_oqvxfk.png" alt="Register Page" width=100%/></td>
+  </tr>
+   <tr>
+    <td>Login Page</td>
+    <td>Register Page</td>
+  </tr>
+  <tr>
+    <td><image src="https://res.cloudinary.com/candrajulius/image/upload/v1659886867/readme/FoodRecipe/Home_iude4a.png" alt="Home Page" width=100%></td>
+    <td><image src="https://res.cloudinary.com/candrajulius/image/upload/v1659886866/readme/FoodRecipe/Profile_uaphia.png" alt="Profile" width=100%/></td>
+  </tr>
+  <tr>
+    <td>Home Page</td>
+    <td>Profile</td>
+  </tr>
+   <tr>
+    <td><image src="https://res.cloudinary.com/candrajulius/image/upload/v1659886864/readme/FoodRecipe/RecipePage_grzeez.png" alt="RecipePage" width=100%></td>
+    <td><image src="https://res.cloudinary.com/candrajulius/image/upload/v1659886863/readme/FoodRecipe/Recipe_Form_dvt8ao.png" alt="Selling Form" width=100%/></td>
+  </tr>
+  <tr>
+    <td>Recipe Page</td>
+    <td>New Recipe Form</td>
+  </tr>
+</table>
+      
+</p>
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## License
+Distributed under the [MIT](/LICENSE) License.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
