@@ -49,7 +49,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-FoodRecipe is a website to share your own recipe to the world.
+FoodRecipe is one of portfolio project from Pijar Camp, that allow you either to share or delete your own recipe to the world. This project created using PERN stack.
 
 ### Built With
 This app was built with some technologies below:
@@ -117,17 +117,6 @@ Contributions are what make the open source community such an amazing place to b
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-## Related Project
-:rocket: [`Backend FoodRecipe`](https://github.com/Candra-Julius/FoodRecipeBE/)
-
-:rocket: [`Frontend FoodRecipe`](https://github.com/Candra-Julius/Food-RecipeFE/tree/master/food-recipe)
-
-:rocket: [`Web Service`](https://food-recipe-pijar.herokuapp.com/)
-
-:rocket: [`Demo FoodRecipe`](https://foodrecipe-dusky.vercel.app/login)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 ## Screenshoots
 
 <p align="center" display=flex>
@@ -143,7 +132,7 @@ Contributions are what make the open source community such an amazing place to b
     <td>Register Page</td>
   </tr>
   <tr>
-    <td><image src="https://res.cloudinary.com/candrajulius/image/upload/v1659886867/readme/FoodRecipe/Home_iude4a.png" alt="Home Page" width=100%></td>
+    <td><image src="https://res.cloudinary.com/candrajulius/image/upload/v1660005006/readme/FoodRecipe/Home_i1wwc4.png" alt="Home Page" width=100%></td>
     <td><image src="https://res.cloudinary.com/candrajulius/image/upload/v1659886866/readme/FoodRecipe/Profile_uaphia.png" alt="Profile" width=100%/></td>
   </tr>
   <tr>
@@ -161,6 +150,17 @@ Contributions are what make the open source community such an amazing place to b
 </table>
       
 </p>
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Related Project
+:rocket: [`Backend FoodRecipe`](https://github.com/Candra-Julius/FoodRecipeBE/)
+
+:rocket: [`Frontend FoodRecipe`](https://github.com/Candra-Julius/Food-RecipeFE/tree/master/food-recipe)
+
+:rocket: [`Web Service`](https://food-recipe-pijar.herokuapp.com/)
+
+:rocket: [`Demo FoodRecipe`](https://foodrecipe-dusky.vercel.app/login)
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## License
