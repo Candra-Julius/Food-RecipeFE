@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -15,16 +16,7 @@ const EdirRecipe = ({recipe,setIsLoggedIn}) => {
     recipe_name: '',
     ingridient:''
   });
-//   const [initialForm, setInitialForm] = useState([])
-//   const getData = async()=> {
-//     const {data} = await axios.get(`http://localhost:8000/recipe/detail/${id}`)
-//     const result = data.data
-//     setInitialForm(result)
-//   }
-//   useEffect(()=>{
-//     getData()
-//   }, [])
-  
+  const [previewe, setPreviewe] = useState(undefined)
   const [image, setImage] = useState([]);
   const fetchData = async (formData) => {
     const token = localStorage.getItem('token')
@@ -46,37 +38,56 @@ const handleChange = (e) =>{
 const handleImage = (e) => {
     setImage(e.target.files[0])
 }
+useEffect(()=>{
+  if(!image || image.length === 0){
+    setPreviewe(undefined)
+    return
+  }else{
+    const object = window.URL.createObjectURL(image)
+    setPreviewe(object)
+    return () => URL.revokeObjectURL(image)
+  }
+}, [image])
 const handleSubmit = (e) =>{
     e.preventDefault();
     const formData = new FormData();
     formData.append("name", form.recipe_name);
     formData.append('ingridient', form.ingridient);
     formData.append('image', image)
-    // console.log(formData.get('image'));
-    // console.log(typeof(id));
     fetchData(formData)
     alert('recipe updated')
-    // router.push('/profile')
 }
   return (
     <div className={style.container}>
       <NavBar setIsLoggedIn={setIsLoggedIn} />
       <main className={style.main}>
         <form className={style.main}>
-        <h1>{}</h1>
           <div className={style.form}>
-            <div className={style.upload}>
-              <label htmlFor="pict">Add photo</label>
-              <input
-                name="image"
-                className={style.uploadPhoto}
-                value={''}
-                id="pict"
-                type="file"
-                accept=".jpeg, .jpg, .png"
-                onChange={handleImage}
-              />
-            </div>
+          {!previewe?
+          <div className={style.upload}>
+          <label htmlFor="pict"><img src={recipe.pict} alt='previewe'/></label>
+          <input
+            name="image"
+            className={style.uploadPhoto}
+            value={''}
+            id="pict"
+            type="file"
+            accept=".jpeg, .jpg, .png"
+            onChange={(e) => handleImage(e)}
+          />
+        </div>: <div className={style.previewe}><label htmlFor="pict">
+        <img src={previewe} className={style.previeweImg} alt='previewe' layout='responsive'/>
+        </label>
+        <input
+            name="image"
+            className={style.uploadPhoto}
+            value={''}
+            id="pict"
+            type="file"
+            accept=".jpeg, .jpg, .png"
+            onChange={(e) => handleImage(e)}
+          />
+        </div>}
             <InputC
               className={style.title}
               value={form.recipe_name}

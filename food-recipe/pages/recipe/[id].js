@@ -26,12 +26,6 @@ const RecipeDetail = ({recipe, setIsLoggedIn}) => {
     <h3>Ingredients</h3>
     <p>{recipe.ingridient}</p>
     </div>
-    <div className={style.videos}>
-    <h3>Step Video</h3>
-    <div className={style.videoButton}>
-    <Image className={style.buttonImage} alt='' src={play}  width={'20%'} height={'20%'} />
-    </div>
-    </div>
     </main>
     <Footer/>
     </div>

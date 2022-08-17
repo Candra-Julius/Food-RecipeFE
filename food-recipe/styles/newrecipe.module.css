@@ -47,10 +47,24 @@
     display:flex;
     align-items: center;
 }
+.previewe{
+    margin:0 auto;
+    width:250px;
+    height:250px;
+    
+}
+.previeweImg{
+    width:100%;
+    height: 100%;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+.title{
+    margin-top: 10px;
+}
 .boxArea{
     width:100%;
     height:280px;
-    /* background-color: aqua; */
     margin-bottom: 20px;
     margin-top: 20px;
 }
