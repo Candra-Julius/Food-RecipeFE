@@ -48,7 +48,7 @@
 }
 .Card button:hover{
     content: 'delete';
-    transform: translateY(4px);
+    transform: translateY(2px);
 }
 .delete{
     background-color:none;

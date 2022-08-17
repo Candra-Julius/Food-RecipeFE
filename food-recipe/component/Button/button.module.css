@@ -1,15 +1,18 @@
 .submitButt{
-    background: #EFC81A;
+    /* background: #EFC81A; */
+    background-color: #CFA800;
     border-radius: 5px;
     width: 100%;
     padding-top: 13px;
     padding-bottom: 13px;
     border: none;
     color: #fff;
-    transition: 300ms;
+    transition: 250ms;
     cursor: pointer;
 }
 .submitButt:hover {
-    background-color: #CFA800;
-    transform: translateY(-8px);
+    background: #EFC81A;
+    /* background-color: #CFA800; */
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
+    transform: translateY(-2px);
 }

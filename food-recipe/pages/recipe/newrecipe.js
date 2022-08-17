@@ -19,13 +19,17 @@ const Newrecipe = ({setIsLoggedIn}) => {
   const [previewe, setPreviewe] = useState(undefined)
   const [video, setVideo] = useState([])
   const [image, setImage] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
   async function fetchData(dataForm) {
+    setIsLoading(true)
+    const token = localStorage.getItem('token')
     await axios({
       method: "POST",
       baseURL: `${process.env.NEXT_API}`,
       url: "/recipe/new",
       data: dataForm,
-      withCredentials: true
+      withCredentials: true,
+      headers:{Authorization: `Bearer ${token}`,}
     });
   }
   const handleChange = (e) => {
@@ -58,8 +62,9 @@ const Newrecipe = ({setIsLoggedIn}) => {
     console.log(previewe);
   }, [newRecipe, image, video, previewe]);
 
-  const handleNewRecipe = (e) => {
-    e.preventDefault();
+  const handleNewRecipe = async(e) => {
+    try {
+      e.preventDefault();
     const formData = new FormData();
     formData.append("userID", newRecipe.userID);
     formData.append("name", newRecipe.name);
@@ -69,8 +74,14 @@ const Newrecipe = ({setIsLoggedIn}) => {
     formData.append("title", newRecipe.title);
     console.log(formData.get('image'));
     console.log(formData.get('video'));
-    fetchData(formData);
+    await fetchData(formData);
+    setIsLoading(false)
     alert("New Recipe Added");
+    } catch (error) {
+      setIsLoading(false)
+      alert('there something happened')
+    }
+    
   };
 
   return (

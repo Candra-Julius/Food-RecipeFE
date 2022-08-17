@@ -31,12 +31,13 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
-    transition: 500ms;
+    transition: 300ms;
     margin-bottom: 20px;
     /* Style as you please, it will become the visible UI component. */
 }
 .upload label:hover{
-    transform: translateY(4px);
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
+    transform: translateY(2px);
 }
 .uploadPhoto {
     opacity: 0;
@@ -97,7 +98,7 @@
     /* Style as you please, it will become the visible UI component. */
 }
 .uploadVid label:hover{
-    transform: translateY(4px);
+    transform: translateY(1px);
 }
 .vid {
     opacity: 0;

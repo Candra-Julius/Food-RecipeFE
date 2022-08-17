@@ -29,7 +29,8 @@ useEffect(()=>{
   fetchData()
 },[])
   const handleDelete = async(id) => {
-    await axios.delete(`${process.env.NEXT_API}/recipe/delete/${id}`, {withCredentials: true})
+    const token = localStorage.getItem('token')
+    await axios.delete(`${process.env.NEXT_API}/recipe/delete/${id}`, {withCredentials: true, headers:{ Authorization: `Bearer ${token}`,}})
   }
   const handleEdit = (id) => {
     router.push(`/recipe/edit/${id}`)
