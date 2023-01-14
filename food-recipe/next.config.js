@@ -5,7 +5,7 @@ const nextConfig = {
   },
   reactStrictMode: true,
   env: {
-    NEXT_API: 'https://food-recipe-pijar.herokuapp.com'
+    NEXT_API: 'https://white-rooster-kilt.cyclic.app'
   }
 }
 
