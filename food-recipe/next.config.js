@@ -5,7 +5,7 @@ const nextConfig = {
   },
   reactStrictMode: true,
   env: {
-    NEXT_API: 'https://white-rooster-kilt.cyclic.app'
+    NEXT_API: 'https://long-underwear-toad.cyclic.app'
   }
 }
 
