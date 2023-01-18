@@ -40,7 +40,7 @@ export const getStaticPaths = async() => {
         const paths = result.map((data)=>{
           return{
             params:{
-              id: data.recipe_id + ''
+              id: data.id_recipe + ''
             }
           }
         })
@@ -60,7 +60,8 @@ export const getStaticProps = async(context)=>{
   return {
     props: {
       recipe: result
-    }
+    },
+    revalidate: 10
   }
 }
 

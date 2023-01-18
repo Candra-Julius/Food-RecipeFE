@@ -51,8 +51,8 @@ useEffect(()=>{
 const handleSubmit = (e) =>{
     e.preventDefault();
     const formData = new FormData();
-    formData.append("name", form.recipe_name);
-    formData.append('ingridient', form.ingridient);
+    formData.append("recipe_name", form.recipe_name);
+    formData.append('ingredient', form.ingridient);
     formData.append('image', image)
     fetchData(formData)
     alert('recipe updated')

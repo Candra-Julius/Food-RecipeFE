@@ -18,6 +18,9 @@ export default function Home({setIsLoggedIn}) {
 useEffect(()=>{
   fetchData()
 },[])
+useEffect(()=>{
+  console.log(recipe.map(data => data))
+},[recipe])
   return (
     <div className={styles.container}>
     <NavBar setIsLoggedIn={setIsLoggedIn}/>
@@ -43,9 +46,9 @@ useEffect(()=>{
       </div>
       <div className={styles.indexCard}>
       {recipe.map((data)=>(
-        <Link href={`/recipe/${data.recipe_id}`}>
+        <Link href={`/recipe/${encodeURIComponent(data.id_recipe)}`}>
       <div className={styles.Card}>
-        <Image className={styles.Card} src={data.pict? data.pict: dummy} alt='thumbnail' width={'100%'} height={'100%'} layout="responsive" />
+        <Image className={styles.Card} src={data.recipe_images? data.recipe_images: dummy} alt='thumbnail' width={'100%'} height={'100%'} layout="responsive" />
         <p>{data.recipe_name}</p>
       </div>
       </Link>

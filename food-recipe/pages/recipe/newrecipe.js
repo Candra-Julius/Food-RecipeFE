@@ -28,7 +28,7 @@ const Newrecipe = ({setIsLoggedIn}) => {
       baseURL: `${process.env.NEXT_API}`,
       url: "/recipe/new",
       data: dataForm,
-      withCredentials: true,
+      // withCredentials: true,
       headers:{Authorization: `Bearer ${token}`,}
     });
   }
@@ -66,9 +66,9 @@ const Newrecipe = ({setIsLoggedIn}) => {
     try {
       e.preventDefault();
     const formData = new FormData();
-    formData.append("userID", newRecipe.userID);
-    formData.append("name", newRecipe.name);
-    formData.append("ingridient", newRecipe.ingridient);
+    formData.append("id_user", newRecipe.userID);
+    formData.append("recipe_name", newRecipe.name);
+    formData.append("ingredient", newRecipe.ingridient);
     formData.append("image", image);
     formData.append("video", video);
     formData.append("title", newRecipe.title);
